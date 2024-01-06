@@ -18,10 +18,13 @@ def combine_dataset(path:str) -> pd.DataFrame:
     for file_name in file_list:
         files.append(os.path.join(folder_path, file_name))
 
-    df_1 = pd.read_csv(files[0], sep="\t", header=None)
-    df_2 = pd.read_csv(files[1], sep="\t", header=None)
+    if len(files)>1:
+        df_1 = pd.read_csv(files[0], sep="\t", header=None)
+        df_2 = pd.read_csv(files[1], sep="\t", header=None)
+        df = pd.concat([df_1, df_2])
 
-    df = pd.concat([df_1, df_2])
+    else:
+        df = pd.read_csv(files[0], sep="\t", header=None)
 
     # reset the index
     df.reset_index(drop=True, inplace=True)
@@ -43,7 +46,7 @@ def semicolons_for_spaces(x):
 def main() -> None:
 
     language = "dan"
-    danish_df = combine_dataset("../data/sigmorphon2017")
+    danish_df = combine_dataset("../data/sigmorphon2017/danish-train-medium")
 
     # Split strings in spaces and add <>, so adelantar turns into < a d e l a n t a r >
     # change all rows of column A by adding 2
