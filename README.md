@@ -1,0 +1,3 @@
+# Backtranslation Project, by Ignacio Talavera
+
+This is the repository for the backtranslation project done by Ignacio Talavera Cepeda in the Morphology class of 2023/2024, at HAPLAP EHU. All the training scripts I've used, as well as the training data obtained from CoNLL–SIGMORPHON 2017 can be found here. All the models were trained using Google Colaboratory default GPUs environment, therefore all the installation dependencies can be found in the individual notebooks and can be directly installed when using these environment, or can be reproduced locally if you have enough computing resources (something equivalent to Tesla K80 GPU with 12GB of RAM should be enough).
